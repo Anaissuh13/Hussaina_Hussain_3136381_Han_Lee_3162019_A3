@@ -1,0 +1,246 @@
+/*High Contrast Theme - Based on provided color gradient*/
+/*Colors: Purple to Orange gradient with high contrast*/
+
+QMainWindow {
+    background-color: #1a0033;
+}
+
+/*Top Ribbon*/
+#statsRibbon {
+    background-color: #4a1a66;
+    border-bottom: 2px solid #6b2d8c;
+}
+
+#menuButton {
+    background-color: #6b2d8c;
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 16px;
+    font-size: 11pt;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+#menuButton:hover {
+    background-color: #8c3db3;
+}
+
+#statsLabel {
+    color: #FFFFFF;
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+/*Sidebar*/
+#slidingSidebar {
+    background-color: #2d0a47;
+    border-right: 3px solid #6b2d8c;
+}
+
+#sectionLabel {
+    font-size: 11pt;
+    font-weight: bold;
+    color: #FFFF00;
+    padding: 4px 0px;
+}
+
+#sidebarButton {
+    background-color: #c75b9b;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    padding: 8px;
+    font-size: 10pt;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+#sidebarButton:hover {
+    background-color: #d97bb3;
+}
+
+#newGameButton {
+    background-color: #e67e5c;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    padding: 8px;
+    font-size: 10pt;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+#newGameButton:hover {
+    background-color: #f09876;
+}
+
+#separator {
+    background-color: #6b2d8c;
+    max-height: 1px;
+}
+
+QRadioButton {
+    color: #FFFFFF;
+    font-size: 10pt;
+    padding: 2px;
+}
+
+QRadioButton::indicator {
+    width: 14px;
+    height: 14px;
+}
+
+QRadioButton::indicator:unchecked {
+    border: 2px solid #FFFFFF;
+    border-radius: 7px;
+    background-color: #2d0a47;
+}
+
+QRadioButton::indicator:checked {
+    border: 2px solid #FFFF00;
+    border-radius: 7px;
+    background-color: #FFFF00;
+}
+
+/*Game Area*/
+#gameArea {
+    background-color: #1a0033;
+}
+
+#sectionHeader {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #FFFF00;
+    padding: 4px;
+}
+
+/*Dealer and Player Sections*/
+#dealerSection {
+    background-color: #4a1a66;
+    border: 3px solid #FF6B6B;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+#playerSection {
+    background-color: #4a1a66;
+    border: 3px solid #4ECDC4;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/*Total Labels*/
+#totalLabel {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #FFFF00;
+    padding: 6px;
+    background-color: #2d0a47;
+    border: 2px solid #FFFFFF;
+    border-radius: 4px;
+}
+
+/*Card Labels - Smaller, flexible*/
+#cardLabel {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #6b2d8c;
+    border: 3px solid #FFFFFF;
+    border-radius: 6px;
+    padding: 12px 8px;
+    min-width: 45px;
+    min-height: 65px;
+}
+
+/*Action Buttons*/
+#hitButton, #standButton {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #FFFFFF;
+    border: 3px solid #FFFFFF;
+    border-radius: 6px;
+    padding: 10px 30px;
+    min-width: 100px;
+}
+
+#hitButton {
+    background-color: #c75b9b;
+}
+
+#hitButton:hover {
+    background-color: #d97bb3;
+}
+
+#hitButton:disabled {
+    background-color: #4a1a66;
+    color: #7a7a7a;
+    border-color: #7a7a7a;
+}
+
+#standButton {
+    background-color: #e67e5c;
+}
+
+#standButton:hover {
+    background-color: #f09876;
+}
+
+#standButton:disabled {
+    background-color: #4a1a66;
+    color: #7a7a7a;
+    border-color: #7a7a7a;
+}
+
+/*Dialog Styling - Themed for high contrast*/
+QDialog {
+    background-color: #2d0a47;
+    color: #FFFFFF;
+}
+
+QDialog QLabel {
+    color: #FFFFFF;
+}
+
+#rulesDialog {
+    background-color: #2d0a47;
+}
+
+#rulesText {
+    background-color: #2d0a47;
+    color: #FFFFFF;
+    padding: 10px;
+}
+
+#rulesScroll {
+    background-color: #2d0a47;
+    border: 2px solid #6b2d8c;
+}
+
+#rulesButton {
+    background-color: #c75b9b;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    padding: 10px 20px;
+    font-size: 12pt;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#rulesButton:hover {
+    background-color: #d97bb3;
+}
+
+QScrollArea {
+    background-color: #2d0a47;
+    border: 2px solid #6b2d8c;
+}
+
+QScrollBar:vertical {
+    background-color: #2d0a47;
+    width: 10px;
+    border: 1px solid #6b2d8c;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #c75b9b;
+    border-radius: 5px;
+}
