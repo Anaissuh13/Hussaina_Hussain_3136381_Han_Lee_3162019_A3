@@ -524,7 +524,8 @@ class MainWindow(QMainWindow):
         while layout.count():
             item = layout.takeAt(0)
             widget = item.widget()
-            if widget:
+            if widget is not None:
+                widget.setParent(None)
                 widget.deleteLater()
 
     def add_card(self, layout, card_text):
