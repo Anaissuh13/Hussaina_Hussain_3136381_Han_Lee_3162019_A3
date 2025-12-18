@@ -124,7 +124,7 @@ class ResultDialog(QDialog):
         result_label.setStyleSheet("""
             font-size: 20pt;
             font-weight: bold;
-            color: #2c3e50;
+            color: #FFFF00;
             padding: 20px;
         """)
 
@@ -132,7 +132,7 @@ class ResultDialog(QDialog):
         scores.setAlignment(Qt.AlignmentFlag.AlignCenter)
         scores.setStyleSheet("""
             font-size: 14pt;
-            color: #34495e;
+            color: #FFFF00;
             padding: 10px;
         """)
 
