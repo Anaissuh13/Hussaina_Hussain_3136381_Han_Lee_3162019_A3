@@ -1,7 +1,7 @@
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QLabel, QPushButton,
                              QVBoxLayout, QHBoxLayout, QWidget, QMessageBox,
                              QDialog, QFrame, QScrollArea, QRadioButton, QButtonGroup)
-from PyQt6.QtCore import Qt, QTimer, QPropertyAnimation, QEasingCurve, QRect
+from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtGui import QFont
 import sys
 
