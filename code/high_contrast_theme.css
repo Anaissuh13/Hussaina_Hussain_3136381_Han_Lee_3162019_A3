@@ -229,6 +229,26 @@ QDialog QLabel {
     background-color: #d97bb3;
 }
 
+/*Result dialog specific styling*/
+#resultDialog {
+    background-color: #2d0a47;
+}
+
+/*Result message in result dialog*/
+#resultLabel {
+    font-size: 20pt;
+    font-weight: bold;
+    color: #FFFF00;
+    padding: 20px;
+}
+
+/*Score display in result dialog*/
+#scoresLabel {
+    font-size: 14pt;
+    color: #FFFFFF;
+    padding: 10px;
+}
+
 QScrollArea {
     background-color: #2d0a47;
     border: 2px solid #6b2d8c;

@@ -50,12 +50,12 @@ class RulesDialog(QDialog):
         self.setModal(True)
         self.setMinimumWidth(500)
         self.setMinimumHeight(400)
-        # Apply object name for CSS styling
+        #Apply object name for CSS styling
         self.setObjectName("rulesDialog")
 
         layout = QVBoxLayout()
 
-        # Rules text with object name for styling
+        #Rules text with object name for styling
         rules_text = QLabel()
         rules_text.setObjectName("rulesText")
         rules_text.setWordWrap(True)
@@ -115,29 +115,25 @@ class ResultDialog(QDialog):
         self.setWindowTitle("Round Complete!")
         self.setModal(True)
         self.setMinimumWidth(400)
+        #Apply object name for theme-based styling
+        self.setObjectName("resultDialog")
 
         layout = QVBoxLayout()
 
+        #Result message label with object name for CSS styling
         result_label = QLabel(result_message)
+        result_label.setObjectName("resultLabel")
         result_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         result_label.setWordWrap(True)
-        result_label.setStyleSheet("""
-            font-size: 20pt;
-            font-weight: bold;
-            color: #FFFF00;
-            padding: 20px;
-        """)
 
+        #Score display label with object name for CSS styling
         scores = QLabel(f"Your Total: {player_total}\nDealer Total: {dealer_total}")
+        scores.setObjectName("scoresLabel")
         scores.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        scores.setStyleSheet("""
-            font-size: 14pt;
-            color: #FFFF00;
-            padding: 10px;
-        """)
 
         button_layout = QHBoxLayout()
 
+        #Play again button with inline styling
         play_again_button = QPushButton("Play Another Round")
         play_again_button.clicked.connect(self.accept)
         play_again_button.setStyleSheet("""
@@ -155,6 +151,7 @@ class ResultDialog(QDialog):
             }
         """)
 
+        #Quit button with inline styling
         quit_button = QPushButton("Quit")
         quit_button.clicked.connect(self.reject)
         quit_button.setStyleSheet("""
@@ -209,7 +206,7 @@ class SlidingSidebar(QFrame):
         layout.addWidget(font_label)
 
         self.font_button_group = QButtonGroup(self)
-        # Only 3 font sizes: Small, Medium, Large (no X-Large)
+        #Only 3 font sizes: Small, Medium, Large (no X-Large)
         font_sizes = [("Small (10pt)", 10), ("Medium (12pt)", 12), ("Large (14pt)", 14)]
 
         for text, size in font_sizes:
@@ -261,7 +258,7 @@ class SlidingSidebar(QFrame):
         dialog.exec()
 
     def request_new_game(self):
-        # Shows confirmation dialog before starting new game
+        #Shows confirmation dialog before starting new game
         reply = QMessageBox.question(
             self,
             "New Game",
@@ -270,7 +267,7 @@ class SlidingSidebar(QFrame):
             QMessageBox.StandardButton.No
         )
         if reply == QMessageBox.StandardButton.Yes:
-            # Get reference to main window and call new round
+            #Get reference to main window and call new round
             main_window = self.window()
             if hasattr(main_window, 'on_new_round'):
                 main_window.on_new_round()
@@ -283,20 +280,20 @@ class MainWindow(QMainWindow):
         self.setGeometry(200, 200, 1000, 700)
         self.setMinimumSize(900, 650)
 
-        # Settings for font size and theme
-        self.current_font_size = 12  # Default medium font
-        self.current_theme = 'light'  # Start with light theme
-        self.sidebar_visible = False  # Sidebar starts hidden
+        #Settings for font size and theme
+        self.current_font_size = 12  #Default medium font
+        self.current_theme = 'light'  #Start with light theme
+        self.sidebar_visible = False  #Sidebar starts hidden
 
-        # Create game instance - handles all game logic
+        #Create game instance - handles all game logic
         self.game = Game21()
 
-        # Initialize UI components
+        #Initialize UI components
         self.initUI()
-        # Apply initial theme styling
+        #Apply initial theme styling
         self.apply_theme()
 
-        # Show welcome message after UI is ready (100ms delay)
+        #Show welcome message after UI is ready (100ms delay)
         QTimer.singleShot(100, self.show_welcome)
 
     def initUI(self):
@@ -308,7 +305,7 @@ class MainWindow(QMainWindow):
         main_layout.setSpacing(0)
         central_widget.setLayout(main_layout)
 
-        # Top ribbon with stats and menu button
+        #Top ribbon with stats and menu button
         ribbon = QFrame()
         ribbon.setObjectName("statsRibbon")
         ribbon.setFixedHeight(50)
@@ -328,14 +325,14 @@ class MainWindow(QMainWindow):
         ribbon.setLayout(ribbon_layout)
         main_layout.addWidget(ribbon)
 
-        # Content area with sidebar
+        #Content area with sidebar
         content_container = QWidget()
         content_container_layout = QHBoxLayout()
         content_container_layout.setContentsMargins(0, 0, 0, 0)
         content_container_layout.setSpacing(0)
         content_container.setLayout(content_container_layout)
 
-        # Sidebar
+        #Sidebar
         self.sidebar = SlidingSidebar(content_container)
         self.sidebar.hide()
 
@@ -347,7 +344,7 @@ class MainWindow(QMainWindow):
 
         content_container_layout.addWidget(self.sidebar)
 
-        # Game area
+        #Game area
         game_widget = QWidget()
         game_widget.setObjectName("gameArea")
         game_layout = QVBoxLayout()
@@ -355,7 +352,7 @@ class MainWindow(QMainWindow):
         game_layout.setSpacing(15)
         game_widget.setLayout(game_layout)
 
-        # Dealer Section
+        #Dealer Section
         dealer_section = QFrame()
         dealer_section.setObjectName("dealerSection")
         dealer_layout = QVBoxLayout()
@@ -379,7 +376,7 @@ class MainWindow(QMainWindow):
         dealer_section.setLayout(dealer_layout)
         game_layout.addWidget(dealer_section)
 
-        # Player Section
+        #Player Section
         player_section = QFrame()
         player_section.setObjectName("playerSection")
         player_layout = QVBoxLayout()
@@ -403,7 +400,7 @@ class MainWindow(QMainWindow):
         player_section.setLayout(player_layout)
         game_layout.addWidget(player_section)
 
-        # Action buttons
+        #Action buttons
         button_layout = QHBoxLayout()
         button_layout.setSpacing(15)
 
@@ -427,7 +424,7 @@ class MainWindow(QMainWindow):
 
         main_layout.addWidget(content_container, 1)
 
-        # Welcome overlay
+        #Welcome overlay
         self.welcome_overlay = WelcomeOverlay(central_widget)
         self.welcome_overlay.setGeometry(central_widget.rect())
         self.welcome_overlay.hide()
@@ -451,62 +448,65 @@ class MainWindow(QMainWindow):
         self.welcome_overlay.hide()
         self.welcome_overlay.setParent(None)
         self.welcome_overlay.deleteLater()
+        #Mark overlay as deleted to prevent access after deletion
+        self.welcome_overlay = None
         self.new_round_setup()
 
     def resizeEvent(self, event):
         super().resizeEvent(event)
-        if hasattr(self, 'welcome_overlay'):
+        #Only update overlay if it still exists and hasn't been deleted
+        if hasattr(self, 'welcome_overlay') and self.welcome_overlay is not None:
             self.welcome_overlay.setGeometry(self.centralWidget().rect())
 
     def on_hit(self):
-        # Player requests another card
+        #Player requests another card
         card = self.game.player_hit()
         self.add_card(self.playerCardsLayout, card)
 
-        # Update displayed total
+        #Update displayed total
         player_total = self.game.player_total()
         self.player_total_label.setText(f"Total: {player_total}")
 
-        # Check if player busted (went over 21)
+        #Check if player busted (went over 21)
         if player_total > 21:
-            # Reveal dealer cards and end round
+            #Reveal dealer cards and end round
             self.reveal_all_and_end()
-            # Get result message from game logic
+            #Get result message from game logic
             result = self.game.decide_winner()
-            # Update win/loss statistics
+            #Update win/loss statistics
             self.update_statistics()
-            # Show result dialog to player
+            #Show result dialog to player
             self.show_result_dialog(result)
 
     def on_stand(self):
-        # Player ends their turn - dealer now plays
+        #Player ends their turn - dealer now plays
 
-        # Reveal dealer's hidden card
+        #Reveal dealer's hidden card
         self.game.reveal_dealer_card()
         self.update_dealer_cards(full=True)
 
-        # Dealer automatically plays (hits until 17+)
+        #Dealer automatically plays (hits until 17+)
         self.game.play_dealer_turn()
-        # Update display with any new dealer cards
+        #Update display with any new dealer cards
         self.update_dealer_cards(full=True)
 
-        # Determine who won the round
+        #Determine who won the round
         result = self.game.decide_winner()
-        # Update win/loss/tie statistics
+        #Update win/loss/tie statistics
         self.update_statistics()
-        # Disable action buttons (round is over)
+        #Disable action buttons (round is over)
         self.end_round()
 
-        # Show result to player
+        #Show result to player
         self.show_result_dialog(result)
 
     def on_new_round(self):
-        # Start a fresh round of the game
+        #Start a fresh round of the game
         self.game.new_round()
         self.new_round_setup()
 
     def show_result_dialog(self, result_message):
-        # Show result dialog at end of round with proper handling
+        #Show result dialog at end of round with proper handling
         player_total = self.game.player_total()
         dealer_total = self.game.dealer_total()
 
@@ -514,10 +514,10 @@ class MainWindow(QMainWindow):
         result = dialog.exec()
 
         if result == QDialog.DialogCode.Accepted:
-            # User clicked "Play Another Round" - start new round
+            #User clicked "Play Another Round" - start new round
             self.on_new_round()
         else:
-            # User clicked "Quit" - close application
+            #User clicked "Quit" - close application
             QApplication.quit()
 
     def clear_layout(self, layout):
@@ -589,12 +589,12 @@ class MainWindow(QMainWindow):
         selected = self.sidebar.font_button_group.checkedButton()
         if selected and hasattr(selected, 'size_value'):
             self.current_font_size = selected.size_value
-            # Create new font with selected size
+            #Create new font with selected size
             app_font = QFont()
             app_font.setPointSize(self.current_font_size)
-            # Apply to entire application
+            #Apply to entire application
             QApplication.instance().setFont(app_font)
-            # Force update of all widgets
+            #Force update of all widgets
             self.update()
 
     def change_theme(self):

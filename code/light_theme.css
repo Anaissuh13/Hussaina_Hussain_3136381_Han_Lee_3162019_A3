@@ -223,3 +223,23 @@ QDialog QLabel {
 #rulesButton:hover {
     background-color: #8bb4d0;
 }
+
+/*Result dialog specific styling*/
+#resultDialog {
+    background-color: #F0F8FF;
+}
+
+/*Result message in result dialog*/
+#resultLabel {
+    font-size: 20pt;
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 20px;
+}
+
+/*Score display in result dialog*/
+#scoresLabel {
+    font-size: 14pt;
+    color: #2c3e50;
+    padding: 10px;
+}
